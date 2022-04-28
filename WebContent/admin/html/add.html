@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>챌린지 추가하기</title>
+
+  <link rel="stylesheet" href="../css/add.css">
+  <script src="https://kit.fontawesome.com/a4d2993e00.js" crossorigin="anonymous">
+  </script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+  <form method="post" action="../../addChallenger" enctype="UTF-8">
+    <label for="challenge list">챌린지 추가하기</label> <br> <br>
+    <input class="text" type="text" name="challenger_name" id="add"><br><br>
+	시작일: <input type="date" name="startDate"><br><br>
+	마감일: <input type="date" name="endDate"><br><br>
+    <input class="btn" type="submit" id="submit_btn" value="추가하기">
+    <!-- 추가 시 list.html 파일에 챌린지 리스트 추가 -->
+  </form>
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>
