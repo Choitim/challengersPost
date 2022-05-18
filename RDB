@@ -1,0 +1,40 @@
+create table Users1 
+(
+  User_# varchar2(8) not null,
+  User_Name varchar2(30) not null,
+  Major varchar2(30) not null,
+  GRADE varchar2(1),
+  PhoneNum varchar2(15) not null,
+  JoinDate date default sysdate not null,
+  Status varchar2(6)  DEFAULT 'PERMIT',
+  primary key (User_#)
+);
+
+create table Challenger1 
+(
+  Challenger_ID number generated always as identity not null,
+  Challenger_Name varchar2(100) not null,
+  StartDate DATE not null,
+  EndDate DATE not null,
+  UpdateTime DATE default sysdate not null,
+  User_# varchar2(8) not null,
+  primary key (Challenger_ID)
+);
+ALTER TABLE Challenger1
+    ADD CONSTRAINT Challenger1_Users1_FK FOREIGN KEY (User_#)
+        REFERENCES Users1 (User_#);
+        
+create table Feed1 (
+  Challenger_ID number not null,
+  User_# varchar2(8) not null,
+  Text varchar(1000),
+  FileName varchar(500),
+  UploadTime DATE default sysdate not null,
+  primary key (Challenger_ID, UploadTime, User_#)
+);
+ALTER TABLE Feed1
+    ADD CONSTRAINT Feed1_Users1_FK FOREIGN KEY (User_#)
+        REFERENCES Users1 (User_#);
+ALTER TABLE Feed1
+    ADD CONSTRAINT Feed1_Challenger1_FK FOREIGN KEY (Challenger_ID)
+        REFERENCES Challenger1 (Challenger_ID);
